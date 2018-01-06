@@ -1,0 +1,272 @@
+/* Стили страниц сайта клуба Три звезды club3s.ru*/
+body {
+	background-color: #FAF0E6;
+  /* background-image: url("../Pics/3star3.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 30px 20px;*/
+}
+
+nav, aside, header, footer {
+  display: block;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+}
+
+h1 {
+	color: #423838;
+}
+header {
+   padding: 2%;
+   font-family: western, fantasy;
+   text-align: center;   
+   font-size: 1em;
+
+}
+header h1{
+   font-size: 2em;
+   padding-bottom: 1%;
+   font-weight: bolder;
+}
+header #logo{
+   display: block;
+   position: fixed;
+   top: 20px;
+   left: 30px;
+   width: 75px;
+   height: 75px;
+}
+
+
+header fieldset{
+   display: block;
+   float: right;
+   width: 20%;
+   border:1px solid #aaa;
+   box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+   border-radius:5px;
+   font-size: .6em;
+   position: absolute;   
+   top: 1%;
+   left: 78%;
+   
+}
+header fieldset input{
+   width: 55%;
+   height: 3%;
+}
+header fieldset legend{
+   padding-bottom: 3px;
+   font-size: 1.2em;
+}
+header fieldset #usr{
+   padding-top: 3px;
+   padding-bottom: 3px;
+   font-size: 1.3em;
+}
+
+/*  Всё, что касается главного меню*/
+nav {
+  padding: 15px;
+  background: #FAF0E6;
+  float: left;
+  width: 200px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  margin-right: 1%;
+}
+
+nav h3 {
+  font-size: 1.1em;
+  color: rgba(0,0,0,.6);
+  margin: 0 0 10px;
+  padding: 0 5px;
+  position: relative;
+}
+nav h3:after{
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #80C8A0;
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  box-shadow: -8px -8px #80C8A0, 0 -8px #80C8A0, -8px 0 #80C8A0;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+  border-top: 1px solid rgba(0,0,0,.3);
+}
+nav li {
+  margin: 12px 0 0 0px;
+}
+
+nav a {
+  text-decoration: none;
+  display: block;  
+  font-size: 13px;
+  color: rgba(0,0,0,.6);
+  padding: 5px;
+  position: relative;
+  transition: .3s linear;
+}
+
+nav a:after{
+  content: ">>>";
+  font-family: Times;
+  position: absolute;
+  right: 5px;
+  color: white;
+  transition: .2s linear;
+}
+
+nav a:hover {
+  background: #80C8A0;
+  color: white;
+}
+/* Картинка на первой странице*/
+#pic1page {
+  float: right;
+  display: block;
+  width: 300px;
+  height: 200px;
+  top: 200px;
+  right: 270px;
+  margin-left: 15px;
+}
+
+/* Перезаливаемый блок*/
+article {
+	display: block;
+	margin-left: 230px;
+	margin-right: 15px;
+   padding:      1%;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 0.9em;
+   color: #423838;
+  
+}
+article p{
+   padding-bottom: 1%;
+}
+article .p1header{
+   font-size: 1em;
+   font-weight: bold;
+   text-align: center;
+   padding-bottom: 2%;
+}
+
+/*
+Устав клуба (набор стилей префикс - st)
+Строка "Утверждения" с правым выравниванием - stpr
+Параграфы - stp1...stpn, где n - от 2 до примерно 5
+*/
+.stlist{
+	display: block;
+	margin-right: 5px;
+   padding-left: 1%;
+   padding-right: 1%;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: small;
+   background-color: #FAF0E6;
+   color: #423838;
+}
+.stpr{
+   text-align: right;
+   font-style: italic;
+   font-size: 0.8em;
+}
+.stheader{
+   text-align: center;   
+   font-size: 2em;
+   font-weight: bolder;
+}
+.stp1{
+   text-align: center;
+   font-size: 1.2em;
+   font-weight: bold;
+}
+.stp2{
+   text-align: left;
+   padding-left: 1%;
+}
+
+/*
+Таблицы первой страницы данных (история заседаний, контактная информация)
+*/
+table {
+margin: 0 auto; /* центруем по горизонитали внешними отступами */
+}
+td, th {
+border: 1px solid  #423838; /* задаем сплошную границу размером 1 пиксель цвета #F50 */
+padding: 7px; /* устанавливаем внутренние отступы для всех сторон */
+vertical-align: middle;
+}
+caption {
+padding-bottom: 19px;	/* устанавливаем внутренние отступы снизу для всех сторон */
+font-size: 1.2em;
+font-weight: bold;
+}
+table .theader{
+   text-align: center;
+   font-weight: bold;
+}
+table .underpic{
+   font-size: .7em;
+   font-style: italic;
+   vertical-align: bottom;
+}
+table .emboss {
+   font-weight: bold;
+}
+
+/*Стили страницы дежурного по клубу*/
+#picduty {
+   display: block;
+   float: left;
+   width: 200px;
+   height: 250px;
+   margin-bottom: 10px;
+}
+
+#marazm , #tost , #anecdot , #caricatura {
+   display: block;
+   float: right;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #423838;
+   border-radius: 5px;
+   width: 70%;
+   padding: 4px;
+   margin-bottom: 15px;
+   box-shadow: 1px 1px 3px #ccc, 0 10px 15px #eee inset;
+   font-size: 0.9em;
+}
+#marazm p:first-child , #tost p:first-child , #anecdot p:first-child {
+  font-weight: bold;
+  font-size: 1.1em; 
+}
+
+
+#caricatura {
+   display: block;
+   clear: both;
+}
+
+/* 
+Подвал страницы - footer
+*/
+.pfoot {
+	display: block;
+	position: relative;
+	clear: both;
+	margin-top: 15px;
+	margin-left: 240px;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size:10px;
+   font-style: normal;
+ 
+}
