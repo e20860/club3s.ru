@@ -232,7 +232,7 @@ table .emboss {
    margin-bottom: 10px;
 }
 
-#marazm , #tost , #anecdot , #caricatura {
+#marazm , #tost , #anecdot , #caricatura ,#playlist {
    display: block;
    float: right;
    border-style: solid;
@@ -245,16 +245,28 @@ table .emboss {
    box-shadow: 1px 1px 3px #ccc, 0 10px 15px #eee inset;
    font-size: 0.9em;
 }
-#marazm p:first-child , #tost p:first-child , #anecdot p:first-child {
+#marazm p:first-child , #tost p:first-child , #anecdot p:first-child , #caricatura p:first-child , #playlist p:first-child{
   font-weight: bold;
   font-size: 1.1em; 
 }
-
 
 #caricatura {
    display: block;
    clear: both;
 }
+
+#caricatura a {
+   display: block;
+   padding-left: 10px;
+   padding-bottom: 5px;
+}
+
+/*playlist.css*/
+#accordion{
+   font:normal 9pt Arial,sans-serif;
+}
+
+
 
 /* 
 Подвал страницы - footer

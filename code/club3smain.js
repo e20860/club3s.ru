@@ -8,13 +8,21 @@ function main() {
    // Глобальные переменные
    var GRANTED = false;
    var urlMain = "docs/main.html";
-   var urlStat = "docs/statut.txt";
-   var urlHist = "docs/history.txt";
-   var urlDuty = "docs/duty.txt";
-   var urlCont = "docs/contacts.txt";
+   var urlStat = "docs/statut.html";
+   var urlHist = "docs/history.html";
+   var urlDuty = "docs/duty.html";
+   var urlCont = "docs/contacts.html";
    var curUser = {"log": "","email": "","pass": ""};
-   var notAllowed = "Я НЕ УЗНАЮ ВАС В ГРИМЕ\n___________________________\n\nДанная информация доступна только\nзарегистрированным членам клуба";
-   // Для страницы 
+   var notAllowed = "       Я НЕ УЗНАЮ ВАС В ГРИМЕ\n_____________________________________\n\nДанная информация доступна только\nзарегистрированным членам клуба";
+   // Для страницы дежурного по клубу
+   var aDuties = [
+      {"pic":"Pics/duties/duty1.jpg","name":"гусар Летучий"},   
+      {"pic":"Pics/duties/duty2.jpg","name":"гусар Залётный"},   
+      {"pic":"Pics/duties/duty3.png","name":"гусар Красный"},   
+      {"pic":"Pics/duties/duty4.jpg","name":"поручик Голицин"},   
+      {"pic":"Pics/duties/duty5.jpg","name":"гусар Малёваный"},   
+      {"pic":"Pics/duties/duty6.jpg","name":"гусар Клубный"}   
+   ];
    var aMarazms= []; // Массив маразмов из json   
    var dMarazm = {"num":0, "text":""}; // дежурный маразм (сначала пустой)
    var usedMarazms = [];  // использованные маразмы
@@ -36,7 +44,7 @@ function main() {
    aTosts     = fillTosts();   // и застольных тостов
    aAnecdots  = fillAnecdots();//а также анекдотов
    //-------------------------------------------------------------------------------------
-   $("article").load("docs/main.txt");
+   $("article").load(urlMain);
    
    var users = []; 
    
@@ -157,6 +165,7 @@ function main() {
    //-------------------------------------------------------------------------------------
    function fillDutyItems() {
       // Заполняет документацию дежурного по клубу
+      
       // Структура страницы. Из внешнего файла подгружается долго, поэтому - вручную...
       var $art = $("article");
       $art.empty();      
@@ -166,15 +175,23 @@ function main() {
          '<div id="marazm"></div>',
          '<div id="tost"></div>',
          '<div id="anecdot"></div>',
-         '<div id="caricatura"></div>'];
+         '<div id="caricatura"></div>',
+         '<div id="playlist"></div>'
+         ];
          
       aStruct.forEach(function (cstr) {
          $art.append(cstr);      
       });   
-      // Картинка дежурного
+
+      // Картинка дежурного    
+        
+      var oDuty = aDuties[getRandom(6)]; 
+      var picDut= oDuty.pic;
+      var namDut= "<p>" + oDuty.name +"</p>";
+      var sign = "<p>Дежурный по клубу</p>" + namDut;
+      
       $pd = $("#picduty img");
-      var sign = "<p>Дежурный по клубу</p>";
-      $pd.attr("src","Pics/duties/duty1.jpg" );
+      $pd.attr("src",picDut );
       $pd.css("width","200px");
       $("#picduty").append(sign);
 
@@ -184,30 +201,65 @@ function main() {
       var $mrm = $("#marazm"); 
       var tText = "<p>Дежурный маразм № " + dMarazm.num + "</p>" + "<p>" + dMarazm.text + "</p>";
       $mrm.append(tText);
-
             
       // Тост
+
       dTost = getRandomTost();
-      
       var $tst = $("#tost"); 
       var tText = "<p>Дежурный тост № " + dTost.num + "</p>" + "<p>" + dTost.text + "</p>";
       $tst.append(tText);
       
       // Анекдот
-      
+
       dAnecdot = getRandomAnecdot();
-
-
-      //console.log(dAnecdot);
-      
-      
       var $ant = $("#anecdot");
       var tText = "<p>Дежурный анекдот № " + dAnecdot.num + "</p>" + "<p>" + dAnecdot.text + "</p>";
       $ant.append(tText);
+      
+      // Карикатура (картинка)    
+  
+      // в дальнейшем, количество галерей увеличить и выбирать случайную  
+      $car = $("#caricatura");
+      tText = "<p>Дежурные картинки:</p>";
+      $car.append(tText);
+      tText = '<a href="caricatura1.html">Галерея карикатур №1</a>';
+      $car.append(tText);
+      tText = '<a href="caricatura2.html">Галерея карикатур №2</a>';
+      $car.append(tText);
+      tText = '<a href="caricatura3.html">Галерея карикатур №3</a>';
+      $car.append(tText);
+      
+      // И немного музыки
+      
+      $pl = $("#playlist");
+      tText = "<p>Дежурная музыка (серьёзная)</p>";
+      $pl.append(tText);
+      tText = '<a href="playlist.html">Список воспроизведения</a>';
+      $pl.append(tText);
+      //------------------------------------------------------------
+      
+      // Слушатели. Для маразмов, анекдотов и тостов
+      $mrm.click(function () {
+         dMarazm = getRandomMarazm();
+         var tText = "<p>Случайный маразм № " + dMarazm.num + "</p>" + "<p>" + dMarazm.text + "</p>";
+         $mrm.empty();
+         $mrm.append(tText);
+      });   
+      //------------------------
+      $tst.click(function () {
+         dTost = getRandomTost();
+         var tText = "<p>Случайный тост № " + dTost.num + "</p>" + "<p>" + dTost.text + "</p>";
+         $tst.empty();
+         $tst.append(tText);   
+      });   
+         //---------------------
+      $ant.click(function () {
+         dAnecdot = getRandomAnecdot();      
+         var tText = "<p>Случайный анекдот № " + dAnecdot.num + "</p>" + "<p>" + dAnecdot.text + "</p>";
+         $ant.empty();
+         $ant.append(tText);
+      });         
             
-      
-      
-      // Карикатура (картинка)      
       
    }
    //-------------------------------------------------------------------------------------
@@ -235,8 +287,12 @@ function main() {
               }
            break;
         case "duty":
-           //fillArticle(urlDuty); 
-           fillDutyItems();
+           if (GRANTED) { 
+              fillDutyItems();
+           } else {
+              alert(notAllowed);
+              fillArticle(urlMain);
+           }   
            break; 
         case "contacts":
            fillArticle(urlCont);
