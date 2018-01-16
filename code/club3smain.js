@@ -222,11 +222,11 @@ function main() {
       $car = $("#caricatura");
       tText = "<p>Дежурные картинки:</p>";
       $car.append(tText);
-      tText = '<a href="caricatura1.html">Галерея карикатур №1</a>';
+      tText = '<a target="_blank" href="caricatura1.html">Галерея карикатур №1</a>';
       $car.append(tText);
-      tText = '<a href="caricatura2.html">Галерея карикатур №2</a>';
+      tText = '<a target="_blank" href="caricatura2.html">Галерея карикатур №2</a>';
       $car.append(tText);
-      tText = '<a href="caricatura3.html">Галерея карикатур №3</a>';
+      tText = '<a target="_blank" href="caricatura3.html">Галерея карикатур №3</a>';
       $car.append(tText);
       
       // И немного музыки
@@ -234,7 +234,7 @@ function main() {
       $pl = $("#playlist");
       tText = "<p>Дежурная музыка (серьёзная)</p>";
       $pl.append(tText);
-      tText = '<a href="playlist.html">Список воспроизведения</a>';
+      tText = '<a target="_blank" href="playlist.html">Список воспроизведения</a>';
       $pl.append(tText);
       //------------------------------------------------------------
       
