@@ -9,6 +9,7 @@ function main() {
    var GRANTED = false;
    var urlMain = "docs/main.html";
    var urlStat = "docs/statut.html";
+   var urlCodex= "docs/codex.html";
    var urlHist = "docs/history.html";
    var urlDuty = "docs/duty.html";
    var urlCont = "docs/contacts.html";
@@ -277,6 +278,9 @@ function main() {
            break;
         case "statut":
            fillArticle(urlStat);
+           break;
+        case "codex":
+           fillArticle(urlCodex);
            break;
         case "history":
            if (GRANTED) {
